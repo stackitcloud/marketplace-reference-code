@@ -18,8 +18,8 @@ const (
 )
 
 const (
-	VendorProjectIdEnvVar  = "MKT_REF_CODE_VENDOR_PROJECT_ID"
-	MarketplaceTokenEnvVar = "MKT_REF_CODE_REDIRECT_TOKEN"
+	VendorProjectIdEnvVar  = "MP_REF_CODE_VENDOR_PROJECT_ID"
+	MarketplaceTokenEnvVar = "MP_REF_CODE_REDIRECT_TOKEN"
 )
 
 func main() {

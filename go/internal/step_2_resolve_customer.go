@@ -11,12 +11,6 @@ func ResolveCustomer(ctx context.Context, client *stackitmarketplace.APIClient, 
 	req := client.ResolveCustomer(ctx, vendorProjectID).ResolveCustomerPayload(stackitmarketplace.ResolveCustomerPayload{
 		Token: &token,
 	})
-
 	// execute the request
-	subscription, err := req.Execute()
-	if err != nil {
-		return nil, err
-	}
-
-	return subscription, nil
+	return req.Execute()
 }
