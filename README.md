@@ -1,3 +1,10 @@
+<div align="center">
+<br>
+<img src="img/stackit-logo.png" alt="STACKIT logo" width="50%"/>
+<br>
+<br>
+</div>
+
 # STACKIT Marketplace Reference Code
 
 This repository contains reference implementations for **vendors** looking to integrate with the **STACKIT Marketplace**, demonstrating the subscription approval flow and token validation process.
