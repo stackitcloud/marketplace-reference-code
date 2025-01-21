@@ -22,8 +22,8 @@ This example application demonstrates three key marketplace integration steps:
 2. Set up authentication with the STACKIT Go SDK (see [Using the STACKIT Go SDK](#using-the-stackit-go-sdk) below)
 3. Set the following environment variables:
 
-   - `MKT_REFERENCE_CODE_TOKEN`: The marketplace token received during redirect
-   - `MKT_REFERENCE_CODE_VENDOR_PROJECT_ID`: Your STACKIT project ID associated with the product
+   - `MP_REFERENCE_CODE_TOKEN`: The `x-stackit-marketplace` token received during redirect
+   - `MP_REFERENCE_CODE_VENDOR_PROJECT_ID`: Your vendor STACKIT project ID associated with the product
 
 4. Run the application using either:
 
@@ -75,25 +75,17 @@ make fmt      # Format code
 make clean    # Clean build artifacts
 ```
 
-## Environment Variables
-
-The application uses the following constants (configurable in `main.go`):
-
-- `MKT_REF_CODE_REDIRECT_TOKEN`: STACKIT Marketplace token used to resolve a customer. This should be received as a
-  `x-stackit-marketplace-token` query parameter when the user is redirected to the vendor's redirect URL.
-- `MKT_REF_CODE_VENDOR_PROJECT_ID`: Your vendor STACKIT Project ID. This should be the project ID where your product is
-  registered!
-
 ## Using the STACKIT Go SDK
 
 The examples in this repository use the official [STACKIT Go SDK](https://github.com/stackitcloud/stackit-sdk-go) to interact with the Marketplace API.
 
 Authentication is handled automatically by the SDK using its default configuration. For details, see the SDK's [Authentication documentation](https://github.com/stackitcloud/stackit-sdk-go?tab=readme-ov-file#authentication).
 
-A potential way to authenticate is by setting one of these environment variables:
+A **potential** way to authenticate is by setting one of these environment variables:
 
 - `STACKIT_SERVICE_ACCOUNT_KEY`: Your service account key
 - `STACKIT_SERVICE_ACCOUNT_KEY_PATH`: Path to a file containing your service account key
+- `STACKIT_SERVICE_ACCOUNT_TOKEN`: Your service account access token
 
 ## Contributing
 
