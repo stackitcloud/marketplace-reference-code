@@ -1,0 +1,45 @@
+# Binaries and build artifacts
+**/bin/
+dist/
+build/
+
+# Dependencies
+vendor/
+node_modules/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Debug files
+*.log
+debug/
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+*.out
+
+# Temporary files
+tmp/
+temp/
+
+# Binary files
+*.exe
+*.dll
+*.so
+
+# Project specific
+config/*.json
+!config/example.json
