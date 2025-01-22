@@ -24,33 +24,25 @@ func VendorSubscriptionToString(subscription *stackitmarketplace.VendorSubscript
 
 	// Subscription Product details
 	if subscription.Product != nil {
-		builder.WriteString(SubscriptionProductToString(subscription.Product))
+		builder.WriteString("🛍️  Product:\n")
+
+		// Basic product information
+		builder.WriteString(fmt.Sprintf("\t📦 ID:               %s\n", *subscription.Product.ProductId))
+		builder.WriteString(fmt.Sprintf("\t📝 Name:             %s\n", *subscription.Product.ProductName))
+
+		// Vendor information
+		builder.WriteString(fmt.Sprintf("\t🏢 Vendor:           %s\n", *subscription.Product.VendorName))
+		builder.WriteString(fmt.Sprintf("\t🌐 Vendor Website:   %s\n", *subscription.Product.VendorWebsiteUrl))
+
+		// Product status and delivery
+		builder.WriteString(fmt.Sprintf("\t🚚 Delivery Method:  %s\n", *subscription.Product.DeliveryMethod))
+		builder.WriteString(fmt.Sprintf("\t📊 Lifecycle State:  %s\n", *subscription.Product.LifecycleState))
+
+		// Pricing information
+		builder.WriteString(fmt.Sprintf("\t💰 Price Type:       %s\n", *subscription.Product.PriceType))
+		builder.WriteString(fmt.Sprintf("\t💳 Pricing Plan:     %s\n", *subscription.Product.PricingPlan))
 	}
 
 	builder.WriteString("\n══════════════════════════════\n")
-	return builder.String()
-}
-
-func SubscriptionProductToString(product *stackitmarketplace.SubscriptionProduct) string {
-	builder := strings.Builder{}
-
-	builder.WriteString("🛍️  Product:\n")
-
-	// Basic product information
-	builder.WriteString(fmt.Sprintf("\t📦 ID:               %s\n", *product.ProductId))
-	builder.WriteString(fmt.Sprintf("\t📝 Name:             %s\n", *product.ProductName))
-
-	// Vendor information
-	builder.WriteString(fmt.Sprintf("\t🏢 Vendor:           %s\n", *product.VendorName))
-	builder.WriteString(fmt.Sprintf("\t🌐 Vendor Website:   %s\n", *product.VendorWebsiteUrl))
-
-	// Product status and delivery
-	builder.WriteString(fmt.Sprintf("\t🚚 Delivery Method:  %s\n", *product.DeliveryMethod))
-	builder.WriteString(fmt.Sprintf("\t📊 Lifecycle State:  %s\n", *product.LifecycleState))
-
-	// Pricing information
-	builder.WriteString(fmt.Sprintf("\t💰 Price Type:       %s\n", *product.PriceType))
-	builder.WriteString(fmt.Sprintf("\t💳 Pricing Plan:     %s\n", *product.PricingPlan))
-
 	return builder.String()
 }
