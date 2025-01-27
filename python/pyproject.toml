@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "marketplace-reference-code"
+version = "0.1.0"
+description = "Python reference code exemplifying how to integrate with the STACKIT Marketplace API as a vendor"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "STACKIT" }]
+dependencies = [
+    "pyjwt==2.10.1",
+    "requests==2.32.3",
+    "stackit-stackitmarketplace==0.1.0",
+    "stackit-core==0.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.4",
+    "black==24.10.0",
+    "flake8==7.1.1",
+    "isort==5.13.2",
+    "mypy==1.14.1",
+    "types-requests==2.32.0.20241016",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 88
+
+[tool.pytest]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true

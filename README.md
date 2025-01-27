@@ -11,7 +11,7 @@ This repository contains reference implementations for **vendors** looking to in
 
 ## What is the STACKIT Marketplace?
 
-The [STACKIT Marketplace](docs.stackit.cloud/Marketplace) is a digital platform connecting STACKIT customers with third-party digital products, serving as the technological foundation for rapidly expanding the STACKIT portfolio and building industry-specific cloud offerings. It provides access to a diverse range of products, from IaaS and SaaS to licenses, professional services, and datasets.
+The [STACKIT Marketplace](https://docs.stackit.cloud/Marketplace) is a digital platform connecting STACKIT customers with third-party digital products, serving as the technological foundation for rapidly expanding the STACKIT portfolio and building industry-specific cloud offerings. It provides access to a diverse range of products, from IaaS and SaaS to licenses, professional services, and datasets.
 
 ## Supported Languages
 
