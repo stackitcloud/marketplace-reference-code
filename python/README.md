@@ -26,14 +26,20 @@ This example application demonstrates three key marketplace integration steps:
    source .venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. Set up authentication with the STACKIT Python SDK
+3. Install the dependencies
 
-4. Set the following environment variables:
+```bash
+   make deps
+```
+
+4. Set up authentication with the STACKIT Python SDK
+
+5. Set the following environment variables:
 
    - `MP_REF_CODE_REDIRECT_TOKEN`: The `x-stackit-marketplace` token received during redirect
    - `MP_REF_CODE_VENDOR_PROJECT_ID`: Your vendor STACKIT project ID associated with the product
 
-5. Run the application using either:
+6. Run the application using either:
 
 ```bash
    make run
