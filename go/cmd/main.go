@@ -7,14 +7,7 @@ import (
 
 	"github.com/stackitcloud/marketplace-reference-code/internal"
 	"github.com/stackitcloud/marketplace-reference-code/utils"
-	"github.com/stackitcloud/stackit-sdk-go/core/config"
 	"github.com/stackitcloud/stackit-sdk-go/services/stackitmarketplace"
-)
-
-// TODO: remove
-const (
-	marketplaceTokenUrl = "https://service-account.api.qa.stackit.cloud/token"
-	marketplaceEndpoint = "https://stackit-marketplace-dev.api.stg.stackit.cloud"
 )
 
 const (
@@ -25,12 +18,8 @@ const (
 func main() {
 	ctx := context.Background()
 
-	//TODO: These endpoints need to be removed, they are here because we currently restrict prod to a few IPs, so this uses dev
 	log.Println("🔐 Setting up SDK client...")
-	client, err := stackitmarketplace.NewAPIClient(
-		config.WithTokenEndpoint(marketplaceTokenUrl),
-		config.WithEndpoint(marketplaceEndpoint),
-	)
+	client, err := stackitmarketplace.NewAPIClient()
 	if err != nil {
 		log.Fatalf("❌ Failed to setup SDK client: %v", err)
 	}

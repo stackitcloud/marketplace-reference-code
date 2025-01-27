@@ -13,8 +13,7 @@ import (
 )
 
 const (
-	//TODO: update this with the final public DNS address
-	marketplacePublicKeyUrl = "https://ct-dev-stackit-marketplace-pubkeys.object.storage.eu01.onstackit.cloud/v6/resolve-customer.pub"
+	marketplacePublicKeyUrl = "https://keys.marketplace.stackit.cloud/v2/resolve-customer.pub"
 )
 
 // GetMarketplacePublicKey fetches the public key from the marketplace
