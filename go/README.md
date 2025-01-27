@@ -53,14 +53,13 @@ The application demonstrates the following flow:
 ```bash
 .
 ├── cmd/
-│   └── main.go           # Application entry point
+│   └── main.go                         # Application entry point
 ├── internal/
-│   ├── step_1_validate_token.go     # Token validation logic
-│   ├── step_2_resolve_customer.go   # Customer resolution logic
-│   └── step_3_approve_subscription.go # Subscription approval logic
-├── utils/
-    └── utils.go          # Utility functions
-
+│   ├── step_1_validate_token.go        # Token validation logic
+│   ├── step_2_resolve_customer.go      # Customer resolution logic
+│   └── step_3_approve_subscription.go  # Subscription approval logic
+├── utils/                              # Utility functions
+│   └── utils.go
 ```
 
 ## Development
