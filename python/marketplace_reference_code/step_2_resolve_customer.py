@@ -1,10 +1,10 @@
 from stackit.stackitmarketplace.api.default_api import DefaultApi
-from stackit.stackitmarketplace.models.resolve_customer_payload import \
-    ResolveCustomerPayload
-from stackit.stackitmarketplace.models.vendor_subscription import \
-    VendorSubscription
+from stackit.stackitmarketplace.models.resolve_customer_payload import (
+    ResolveCustomerPayload,
+)
+from stackit.stackitmarketplace.models.vendor_subscription import VendorSubscription
 
-from .utils.exceptions import CustomerResolutionError
+from marketplace_reference_code.utils.exceptions import CustomerResolutionError
 
 
 def resolve_customer(

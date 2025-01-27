@@ -1,5 +1,4 @@
-from stackit.stackitmarketplace.models.vendor_subscription import \
-    VendorSubscription
+from stackit.stackitmarketplace.models.vendor_subscription import VendorSubscription
 
 
 def format_subscription_details(subscription: VendorSubscription) -> str:

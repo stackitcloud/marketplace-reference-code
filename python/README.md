@@ -12,7 +12,7 @@ This example application demonstrates three key marketplace integration steps:
 
 ## Prerequisites
 
-- Python 3.8 or higher
+- Python 3.10 or higher
 - A STACKIT Service Account Key
 - A marketplace token (`x-stackit-marketplace`) received via the vendor's redirect URL
 
@@ -22,8 +22,8 @@ This example application demonstrates three key marketplace integration steps:
 2. Create and activate a virtual environment (recommended):
 
 ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 3. Set up authentication with the STACKIT Python SDK
@@ -42,7 +42,7 @@ This example application demonstrates three key marketplace integration steps:
 or
 
 ```bash
-   python -m impl.main
+   python -m marketplace_reference_code.main
 ```
 
 ## Flow Explanation
@@ -60,7 +60,7 @@ The application demonstrates the following flow:
 
 ```bash
 .
-├── impl
+├── marketplace_reference_code
 │   ├── __init__.py
 │   ├── main.py                         # Application entry point
 │   ├── step_1_validate_token.py        # Token validation logic

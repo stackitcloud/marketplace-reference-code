@@ -1,11 +1,14 @@
 import base64
 import logging
-from typing import Any, Optional
+from typing import Optional
 
 import jwt
 import requests
 
-from .utils.exceptions import TokenValidationError, TokenVerificationError
+from marketplace_reference_code.utils.exceptions import (
+    TokenValidationError,
+    TokenVerificationError,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -20,11 +23,11 @@ class TokenValidator:
         response.raise_for_status()
         return base64.b64decode(response.content)
 
-    def verify_token(self, token: str, public_key: bytes) -> dict[str, Any]:
+    def verify_token(self, token: str, public_key: bytes) -> None:
         """Verify the JWT token signature."""
         logger.info("🔐 Verifying token signature...")
         try:
-            return jwt.decode(token, public_key, algorithms=["RS256"])
+            jwt.decode(token, public_key, algorithms=["RS256"])
         except Exception as e:
             raise TokenVerificationError(str(e))
 

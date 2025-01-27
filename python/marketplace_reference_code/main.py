@@ -1,22 +1,26 @@
 import logging
 import os
 
-from stackit.core.configuration import Configuration
+from stackit.core.configuration import Configuration  # type: ignore
 from stackit.stackitmarketplace.api.default_api import DefaultApi
 
-from .step_1_validate_token import validate_token
-from .step_2_resolve_customer import resolve_customer
-from .step_3_approve_subscription import approve_subscription
-from .utils.exceptions import (CustomerResolutionError, MarketplaceError,
-                               SubscriptionApprovalError, TokenValidationError)
-from .utils.formatting import format_subscription_details
+from marketplace_reference_code.step_1_validate_token import validate_token
+from marketplace_reference_code.step_2_resolve_customer import resolve_customer
+from marketplace_reference_code.step_3_approve_subscription import approve_subscription
+from marketplace_reference_code.utils.exceptions import (
+    CustomerResolutionError,
+    MarketplaceError,
+    SubscriptionApprovalError,
+    TokenValidationError,
+)
+from marketplace_reference_code.utils.formatting import format_subscription_details
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 class MarketplaceClient:
-    def __init__(self):
+    def __init__(self) -> None:
         self.token = os.getenv("MP_REF_CODE_REDIRECT_TOKEN")
         self.vendor_project_id = os.getenv("MP_REF_CODE_VENDOR_PROJECT_ID")
 
@@ -28,7 +32,7 @@ class MarketplaceClient:
         )
         self.client = DefaultApi(self.config)
 
-    def process_subscription(self):
+    def process_subscription(self) -> None:
         """Main workflow for processing a marketplace subscription."""
         try:
             # Step 1: Validate token
@@ -65,7 +69,7 @@ class MarketplaceClient:
             raise MarketplaceError("Failed to process subscription") from e
 
 
-def main():
+def main() -> None:
     client = MarketplaceClient()
     client.process_subscription()
 

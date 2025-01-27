@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Caching
+.mypy_cache/
+
 # Distribution / packaging
 dist/
 build/
