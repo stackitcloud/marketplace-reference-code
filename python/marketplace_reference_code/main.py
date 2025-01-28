@@ -27,9 +27,8 @@ class MarketplaceClient:
         if not self.token or not self.vendor_project_id:
             raise ValueError("Required environment variables are not set")
 
-        self.config = Configuration(
-            custom_endpoint="https://stackit-marketplace-dev.api.stg.stackit.cloud"
-        )
+        # Here we use the default configuration
+        self.config = Configuration()
         self.client = DefaultApi(self.config)
 
     def process_subscription(self) -> None:
