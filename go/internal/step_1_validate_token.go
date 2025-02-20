@@ -2,29 +2,30 @@ package internal
 
 import (
 	"crypto/rsa"
-	"encoding/base64"
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/golang-jwt/jwt"
 )
 
 const (
-	marketplacePublicKeyUrl = "https://keys.marketplace.stackit.cloud/v2/resolve-customer.pub"
+	marketplacePublicKeySetUrl = "https://keys.marketplace.stackit.cloud/v1/resolve-customer/keys.json"
 )
 
 // GetMarketplacePublicKey fetches the public key from the marketplace
 // and returns it as a *rsa.PublicKey
-func GetMarketplacePublicKey() (*rsa.PublicKey, error) {
+func GetMarketplacePublicKey() (map[string]*rsa.PublicKey, error) {
 	client := &http.Client{
 		Timeout: 10 * time.Second,
 	}
 
 	log.Println("🔑 Starting public key fetch...")
-	resp, err := client.Get(marketplacePublicKeyUrl)
+	resp, err := client.Get(marketplacePublicKeySetUrl)
 	if err != nil {
 		return nil, fmt.Errorf("fetching public key: %w", err)
 	}
@@ -39,46 +40,69 @@ func GetMarketplacePublicKey() (*rsa.PublicKey, error) {
 		return nil, fmt.Errorf("fetching public key: status code %d", resp.StatusCode)
 	}
 
-	publicKey, err := io.ReadAll(io.LimitReader(resp.Body, 1024*1024)) // 1MB limit
+	publicKeyMapString, err := io.ReadAll(io.LimitReader(resp.Body, 1024*1024)) // 1MB limit
 	if err != nil {
-		return nil, fmt.Errorf("reading public key: %w", err)
+		return nil, fmt.Errorf("reading public key map: %w", err)
 	}
 
-	log.Println("🔄 Decoding public key...")
+	log.Println("🔄 Decoding public keys...")
 
-	// Base64 decode the public key
-	// TODO: This should not be necessary, remove once this is updated in the key storage
-	decodedPublicKey, err := base64.StdEncoding.DecodeString(string(publicKey))
+	var unparsedKeyMap map[string]string
+	err = json.Unmarshal(publicKeyMapString, &unparsedKeyMap)
 	if err != nil {
-		return nil, fmt.Errorf("decoding public key: %w", err)
-	}
-	// Parse the public key
-	parsedKey, err := jwt.ParseRSAPublicKeyFromPEM(decodedPublicKey)
-	if err != nil {
-		return nil, fmt.Errorf("parsing public key: %w", err)
+		return nil, fmt.Errorf("parsing public key map: %w", err)
 	}
 
-	return parsedKey, nil
+	var parsedKeyMap = make(map[string]*rsa.PublicKey, len(unparsedKeyMap))
+	for k, v := range unparsedKeyMap {
+		parsedKey, err := jwt.ParseRSAPublicKeyFromPEM([]byte(v))
+		if err != nil {
+			return nil, fmt.Errorf("parsing public key: %w", err)
+		}
+		parsedKeyMap[k] = parsedKey
+	}
+
+	return parsedKeyMap, nil
 }
 
 // VerifyToken verifies the token signature against the public key
-func VerifyToken(token string, marketplacePublicKey *rsa.PublicKey) error {
+func VerifyToken(token string, marketplacePublicKeySet map[string]*rsa.PublicKey) error {
 	log.Println("🔐 Verifying token signature...")
-	_, err := jwt.Parse(token, func(token *jwt.Token) (interface{}, error) {
-		return marketplacePublicKey, nil
+	var kid string
+	parsedToken, err := jwt.Parse(token, func(token *jwt.Token) (interface{}, error) {
+		claims, ok := token.Claims.(jwt.MapClaims)
+		if !ok {
+			return nil, fmt.Errorf("failed to parse claims")
+		}
+		tokenIss, ok := claims["iss"].(string)
+		if !ok || !strings.EqualFold(tokenIss, marketplacePublicKeySetUrl) {
+			return nil, fmt.Errorf("unexpected issuer '%s', expected '%s' (claims[iss] is string: %t)", claims["iss"], marketplacePublicKeySetUrl, ok)
+		}
+		kid, ok = token.Header["kid"].(string)
+		if !ok {
+			return nil, fmt.Errorf("failed to extract kid")
+		}
+		pubKey, ok := marketplacePublicKeySet[kid]
+		if !ok {
+			return nil, fmt.Errorf("no public key for kid: %s", kid)
+		}
+		return pubKey, nil
 	})
-	return err
+	if err != nil || !parsedToken.Valid {
+		return fmt.Errorf("verifying token: %w", err)
+	}
+	return nil
 }
 
 // ValidateToken performs all the necessary steps to validate a STACKIT Marketplace token
 func ValidateToken(token string) error {
-	marketplacePublicKey, err := GetMarketplacePublicKey()
+	marketplacePublicKeySet, err := GetMarketplacePublicKey()
 	if err != nil {
 		return fmt.Errorf("getting the marketplace public key: %w", err)
 	}
 	log.Println("✅ Public key successfully fetched")
 
-	if err := VerifyToken(token, marketplacePublicKey); err != nil {
+	if err := VerifyToken(token, marketplacePublicKeySet); err != nil {
 		return fmt.Errorf("verifying the marketplace token: %w", err)
 	}
 	log.Println("✅ Token signature verified successfully")

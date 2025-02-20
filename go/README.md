@@ -22,8 +22,8 @@ This example application demonstrates three key marketplace integration steps:
 2. Set up authentication with the STACKIT Go SDK (see [Using the STACKIT Go SDK](#using-the-stackit-go-sdk) below)
 3. Set the following environment variables:
 
-   - `MP_REFERENCE_CODE_TOKEN`: The `x-stackit-marketplace` token received during redirect
-   - `MP_REFERENCE_CODE_VENDOR_PROJECT_ID`: Your vendor STACKIT project ID associated with the product
+   - `MP_REF_CODE_REDIRECT_TOKEN`: The `x-stackit-marketplace` token received during redirect
+   - `MP_REF_CODE_VENDOR_PROJECT_ID`: Your vendor STACKIT project ID associated with the product
 
 4. Run the application using either:
 
