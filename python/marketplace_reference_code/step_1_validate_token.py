@@ -14,12 +14,12 @@ logger = logging.getLogger(__name__)
 
 
 class TokenValidator:
-    PUBLIC_KEY_URL = "https://keys.marketplace.stackit.cloud/v1/resolve-customer/keys.json"
+    PUBLIC_KEYS_URL = "https://keys.marketplace.stackit.cloud/v1/resolve-customer/keys.json"
 
     def get_public_keys(self) -> dict:
         """Fetch and decode the marketplace public keys."""
-        logger.info("🔑 Starting public key fetch...")
-        response = requests.get(self.PUBLIC_KEY_URL, timeout=10)
+        logger.info("🔑 Starting public keys fetch...")
+        response = requests.get(self.PUBLIC_KEYS_URL, timeout=10)
         response.raise_for_status()
         return response.json()
 
@@ -28,7 +28,7 @@ class TokenValidator:
         logger.info("🔐 Verifying token signature...")
         try:
             headers = jwt.get_unverified_header(token)
-            jwt.decode(token, public_keys[headers["kid"]], algorithms=["RS256"], issuer=self.PUBLIC_KEY_URL)
+            jwt.decode(token, public_keys[headers["kid"]], algorithms=["RS256"], issuer=self.PUBLIC_KEYS_URL)
         except Exception as e:
             raise TokenVerificationError(str(e))
 
@@ -46,7 +46,7 @@ def validate_token(token: Optional[str]) -> None:
         validator.verify_token(token, public_key_set)
         logger.info("✅ Token signature verified successfully")
     except requests.RequestException as e:
-        raise TokenValidationError(f"Failed to fetch public key: {str(e)}") from e
+        raise TokenValidationError(f"Failed to fetch public keys: {str(e)}") from e
     except TokenVerificationError as e:
         raise TokenValidationError(f"Failed to verify token signature: {str(e)}") from e
     except Exception as e:
