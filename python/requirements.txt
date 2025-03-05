@@ -41,7 +41,7 @@ stackit-core==0.1.0
     # via
     #   marketplace-reference-code (pyproject.toml)
     #   stackit-stackitmarketplace
-stackit-stackitmarketplace==0.1.0
+stackit-stackitmarketplace==0.2.0
     # via marketplace-reference-code (pyproject.toml)
 typing-extensions==4.12.2
     # via
