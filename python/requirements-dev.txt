@@ -16,7 +16,7 @@ charset-normalizer==3.4.1
     # via requests
 click==8.1.8
     # via black
-cryptography==44.0.0
+cryptography==44.0.1
     # via stackit-core
 flake8==7.1.1
     # via marketplace-reference-code (pyproject.toml)
