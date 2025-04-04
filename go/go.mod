@@ -1,6 +1,6 @@
 module github.com/stackitcloud/marketplace-reference-code
 
-go 1.21
+go 1.24.2
 
 require (
 	github.com/golang-jwt/jwt v3.2.2+incompatible
