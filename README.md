@@ -44,7 +44,7 @@ Each language implementation demonstrates the same core functionality while foll
 
 ## Additional Resources
 
-- [STACKIT Marketplace Documentation](https://docs.stackit.cloud/Marketplace)
+- [STACKIT Marketplace Documentation](https://docs.stackit.cloud/stackit/en/stackit-marketplace-322109923.html)
 - [API Reference](https://docs.api.stackit.cloud/documentation/stackit-marketplace/version/v1)
 
 ## Contributing
