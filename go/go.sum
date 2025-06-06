@@ -1,12 +1,10 @@
-github.com/golang-jwt/jwt v3.2.2+incompatible h1:IfV12K8xAKAnZqdXVzCZ+TOjboZ2keLg81eXfW3O+oY=
-github.com/golang-jwt/jwt v3.2.2+incompatible/go.mod h1:8pz2t5EyA70fFQQSrl6XZXzqecmYZeUEB8OUGHkxJ+I=
 github.com/golang-jwt/jwt/v5 v5.2.2 h1:Rl4B7itRWVtYIHFrSNd7vhTiz9UpLdi6gZhZ3wEeDy8=
 github.com/golang-jwt/jwt/v5 v5.2.2/go.mod h1:pqrtFR0X4osieyHYxtmOUWsAWrfe1Q5UVIyoH402zdk=
 github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=
 github.com/google/go-cmp v0.7.0/go.mod h1:pXiqmnSA92OHEEa9HXL2W4E7lf9JzCmGVUdgjX3N/iU=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
 github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
-github.com/stackitcloud/stackit-sdk-go/core v0.16.2 h1:F8A4P/LLlQSbz0S0+G3m8rb3BUOK6EcR/CKx5UQY5jQ=
-github.com/stackitcloud/stackit-sdk-go/core v0.16.2/go.mod h1:8KIw3czdNJ9sdil9QQimxjR6vHjeINFrRv0iZ67wfn0=
-github.com/stackitcloud/stackit-sdk-go/services/stackitmarketplace v0.3.1 h1:ixpFoU+LJPb7XFlVUoy7K2hxodhb4KizGBSJ74PHpbQ=
-github.com/stackitcloud/stackit-sdk-go/services/stackitmarketplace v0.3.1/go.mod h1:DQcFkCwShTByF2+iPOTLW0H3ULeO4sgYBlq70EPqJWU=
+github.com/stackitcloud/stackit-sdk-go/core v0.17.2 h1:jPyn+i8rkp2hM80+hOg0B/1EVRbMt778Tr5RWyK1m2E=
+github.com/stackitcloud/stackit-sdk-go/core v0.17.2/go.mod h1:8KIw3czdNJ9sdil9QQimxjR6vHjeINFrRv0iZ67wfn0=
+github.com/stackitcloud/stackit-sdk-go/services/stackitmarketplace v1.4.0 h1:wpr8GOCvn2JUdFeYccODdVAT8DuaCjUjBpos5PtM1gw=
+github.com/stackitcloud/stackit-sdk-go/services/stackitmarketplace v1.4.0/go.mod h1:m4K+LH42YHmet1SbypzCOWjg/1pAIWtCT2AbGNJ+lr8=
