@@ -12,7 +12,7 @@ license = "MIT"
 authors = [{ name = "STACKIT" }]
 dependencies = [
     "pyjwt==2.10.1",
-    "requests==2.32.3",
+    "requests==2.32.4",
     "stackit-stackitmarketplace==0.2.0",
     "stackit-core==0.1.0",
 ]
