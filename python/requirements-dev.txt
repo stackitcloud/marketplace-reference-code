@@ -64,7 +64,7 @@ pytest==8.3.4
     # via marketplace-reference-code (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via stackit-stackitmarketplace
-requests==2.32.3
+requests==2.32.4
     # via
     #   marketplace-reference-code (pyproject.toml)
     #   stackit-core
