@@ -47,7 +47,7 @@ typing-extensions==4.12.2
     # via
     #   pydantic
     #   pydantic-core
-urllib3==2.3.0
+urllib3==2.5.0
     # via
     #   requests
     #   stackit-core
