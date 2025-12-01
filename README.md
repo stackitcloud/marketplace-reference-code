@@ -1,6 +1,6 @@
 <div align="center">
 <br>
-<img src="img/stackit-logo.png" alt="STACKIT logo" width="50%"/>
+<img src=".github/images/stackit-logo.svg" alt="STACKIT logo" width="50%"/>
 <br>
 <br>
 </div>
@@ -40,10 +40,11 @@ Each language implementation demonstrates the same core functionality while foll
 
 ### Key concepts
 
-- **Redirect Token**: The Redirect Token, or simply token, is the JWT Token sent to the vendors when the STACKIT Marketplace redirects consumers to the vendor's `Sign Up/Login` page, which happens in the process of creating a subscription (see [SaaS Frontend Integration](https://docs.stackit.cloud/stackit/en/4-2-saas-frontend-integration-339673765.html) for more details).
+- **Redirect Token**: The Redirect Token, or simply token, is the JWT Token sent to the vendors when the STACKIT Marketplace redirects consumers to the vendor's `Sign Up/Login` page, which happens in the process of creating a subscription (see [SaaS Integration](https://docs.stackit.cloud/stackit/en/4-2-saas-frontend-integration-339673765.html) for more details).
 
 ## Additional Resources
 
+- [Public Marketplace](https://marketplace.stackit.cloud/)
 - [STACKIT Marketplace Documentation](https://docs.stackit.cloud/stackit/en/stackit-marketplace-322109923.html)
 - [API Reference](https://docs.api.stackit.cloud/documentation/stackit-marketplace/version/v1)
 
