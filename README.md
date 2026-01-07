@@ -11,7 +11,7 @@ This repository contains reference implementations for **vendors** looking to in
 
 ## What is the STACKIT Marketplace?
 
-The [STACKIT Marketplace](https://docs.stackit.cloud/stackit/en/stackit-marketplace-322109923.html) is a digital platform connecting STACKIT customers with third-party digital products, serving as the technological foundation for rapidly expanding the STACKIT portfolio and building industry-specific cloud offerings. It provides access to a diverse range of products, from IaaS and SaaS to licenses, professional services, and datasets.
+The [STACKIT Marketplace](https://docs.stackit.cloud/marketplace/) is a digital platform connecting STACKIT customers with third-party digital products, serving as the technological foundation for rapidly expanding the STACKIT portfolio and building industry-specific cloud offerings. It provides access to a diverse range of products, from IaaS and SaaS to licenses, professional services, and datasets.
 
 ## Supported Languages
 
@@ -40,12 +40,12 @@ Each language implementation demonstrates the same core functionality while foll
 
 ### Key concepts
 
-- **Redirect Token**: The Redirect Token, or simply token, is the JWT Token sent to the vendors when the STACKIT Marketplace redirects consumers to the vendor's `Sign Up/Login` page, which happens in the process of creating a subscription (see [SaaS Integration](https://docs.stackit.cloud/stackit/en/4-2-saas-frontend-integration-339673765.html) for more details).
+- **Redirect Token**: The Redirect Token, or simply token, is the JWT Token sent to the vendors when the STACKIT Marketplace redirects consumers to the vendor's `Sign Up/Login` page, which happens in the process of creating a subscription (see [SaaS Integration](https://docs.stackit.cloud/marketplace/for-marketplace-vendors/software-as-a-service/saas-integration/) for more details).
 
 ## Additional Resources
 
 - [Public Marketplace](https://marketplace.stackit.cloud/en/catalog)
-- [STACKIT Marketplace Documentation](https://docs.stackit.cloud/stackit/en/stackit-marketplace-322109923.html)
+- [STACKIT Marketplace Documentation](https://docs.stackit.cloud/marketplace/)
 - [API Reference](https://docs.api.stackit.cloud/documentation/stackit-marketplace/version/v1)
 
 ## Contributing
