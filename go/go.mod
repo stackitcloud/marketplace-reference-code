@@ -9,5 +9,5 @@ require (
 
 require (
 	github.com/google/uuid v1.6.0 // indirect
-	github.com/stackitcloud/stackit-sdk-go/core v0.20.0 // indirect
+	github.com/stackitcloud/stackit-sdk-go/core v0.20.1 // indirect
 )
