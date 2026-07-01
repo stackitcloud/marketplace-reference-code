@@ -20,7 +20,7 @@ cryptography==48.0.1
     # via stackit-core
 flake8==7.1.1
     # via marketplace-reference-code (pyproject.toml)
-idna==3.10
+idna==3.15
     # via requests
 iniconfig==2.0.0
     # via pytest
