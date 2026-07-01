@@ -6,7 +6,7 @@
 #
 annotated-types==0.7.0
     # via pydantic
-black==24.10.0
+black==26.3.1
     # via marketplace-reference-code (pyproject.toml)
 certifi==2024.12.14
     # via requests
