@@ -11,8 +11,8 @@ requires-python = ">=3.10"
 license = "MIT"
 authors = [{ name = "STACKIT" }]
 dependencies = [
+    "requests==2.33.0",
     "pyjwt==2.12.0",
-    "requests==2.32.4",
     "stackit-stackitmarketplace==0.2.0",
     "stackit-core==0.1.0",
 ]
