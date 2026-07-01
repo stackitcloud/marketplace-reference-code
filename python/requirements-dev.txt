@@ -56,7 +56,7 @@ pydantic-core==2.27.2
     # via pydantic
 pyflakes==3.2.0
     # via flake8
-pyjwt==2.10.1
+pyjwt==2.12.0
     # via
     #   marketplace-reference-code (pyproject.toml)
     #   stackit-core
