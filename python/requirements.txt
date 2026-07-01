@@ -24,7 +24,7 @@ pydantic==2.10.6
     #   stackit-stackitmarketplace
 pydantic-core==2.27.2
     # via pydantic
-pyjwt==2.12.0
+pyjwt==2.13.0
     # via
     #   marketplace-reference-code (pyproject.toml)
     #   stackit-core
