@@ -12,7 +12,7 @@ This example application demonstrates three key marketplace integration steps:
 
 ## Prerequisites
 
-- Go 1.18 or higher
+- Go 1.26 or higher
 - A STACKIT Service Account Key
 - A marketplace token (`x-stackit-marketplace`) received via the vendor's redirect URL
 
