@@ -6,7 +6,7 @@
 #
 annotated-types==0.7.0
     # via pydantic
-certifi==2024.12.14
+certifi==2026.10.19
     # via requests
 cffi==1.17.1
     # via cryptography
