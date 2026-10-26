@@ -4,43 +4,43 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/stackitcloud/stackit-sdk-go/services/stackitmarketplace"
+	"github.com/stackitcloud/stackit-sdk-go/services/stackitmarketplace/v1api"
 )
 
-func VendorSubscriptionToString(subscription *stackitmarketplace.VendorSubscription) string {
+func VendorSubscriptionToString(subscription *v1api.MarketplaceSubscriptionV1Subscription) string {
 	builder := strings.Builder{}
 
 	builder.WriteString("\n📦 Vendor Subscription Details:\n")
 	builder.WriteString("══════════════════════════════\n")
 
 	// Main subscription details
-	builder.WriteString(fmt.Sprintf("🔑 ID:              %s\n", *subscription.SubscriptionId))
-	builder.WriteString(fmt.Sprintf("📊 Lifecycle State: %s\n", *subscription.LifecycleState))
+	fmt.Fprintf(&builder, "🔑 ID:              %s\n", subscription.SubscriptionId)
+	fmt.Fprintf(&builder, "📊 Lifecycle State: %s\n", subscription.LifecycleState)
 
 	// Project details
-	if subscription.ProjectId != nil {
-		builder.WriteString(fmt.Sprintf("📁 Project ID:      %s\n", *subscription.ProjectId))
+	if subscription.ProjectId != "" {
+		fmt.Fprintf(&builder, "📁 Project ID:      %s\n", subscription.ProjectId)
 	}
 
 	// Subscription Product details
-	if subscription.Product != nil {
+	if subscription.Product.ProductId != "" {
 		builder.WriteString("🛍️  Product:\n")
 
 		// Basic product information
-		builder.WriteString(fmt.Sprintf("\t📦 ID:               %s\n", *subscription.Product.ProductId))
-		builder.WriteString(fmt.Sprintf("\t📝 Name:             %s\n", *subscription.Product.ProductName))
+		fmt.Fprintf(&builder, "\t📦 ID:               %s\n", subscription.Product.ProductId)
+		fmt.Fprintf(&builder, "\t📝 Name:             %s\n", subscription.Product.ProductName)
 
 		// Vendor information
-		builder.WriteString(fmt.Sprintf("\t🏢 Vendor:           %s\n", *subscription.Product.VendorName))
-		builder.WriteString(fmt.Sprintf("\t🌐 Vendor Website:   %s\n", *subscription.Product.VendorWebsiteUrl))
+		fmt.Fprintf(&builder, "\t🏢 Vendor:           %s\n", subscription.Product.VendorName)
+		fmt.Fprintf(&builder, "\t🌐 Vendor Website:   %s\n", subscription.Product.VendorWebsiteUrl)
 
 		// Product status and delivery
-		builder.WriteString(fmt.Sprintf("\t🚚 Delivery Method:  %s\n", *subscription.Product.DeliveryMethod))
-		builder.WriteString(fmt.Sprintf("\t📊 Lifecycle State:  %s\n", *subscription.Product.LifecycleState))
+		fmt.Fprintf(&builder, "\t🚚 Delivery Method:  %s\n", subscription.Product.DeliveryMethod)
+		fmt.Fprintf(&builder, "\t📊 Lifecycle State:  %s\n", subscription.Product.LifecycleState)
 
 		// Pricing information
-		builder.WriteString(fmt.Sprintf("\t💰 Price Type:       %s\n", *subscription.Product.PriceType))
-		builder.WriteString(fmt.Sprintf("\t💳 Pricing Plan:     %s\n", *subscription.Product.PricingPlan))
+		fmt.Fprintf(&builder, "\t💰 Price Type:       %s\n", subscription.Product.PriceType)
+		fmt.Fprintf(&builder, "\t💳 Pricing Plan:     %s\n", subscription.Product.PricingPlan)
 	}
 
 	builder.WriteString("\n══════════════════════════════\n")

@@ -7,7 +7,7 @@ import (
 
 	"github.com/stackitcloud/marketplace-reference-code/internal"
 	"github.com/stackitcloud/marketplace-reference-code/utils"
-	"github.com/stackitcloud/stackit-sdk-go/services/stackitmarketplace"
+	"github.com/stackitcloud/stackit-sdk-go/services/stackitmarketplace/v1api"
 )
 
 const (
@@ -19,7 +19,7 @@ func main() {
 	ctx := context.Background()
 
 	log.Println("🔐 Setting up SDK client...")
-	client, err := stackitmarketplace.NewAPIClient()
+	client, err := v1api.NewAPIClient()
 	if err != nil {
 		log.Fatalf("❌ Failed to setup SDK client: %v", err)
 	}
@@ -53,7 +53,7 @@ func main() {
 
 	// approve subscription
 	log.Println("🔐 Approving subscription...")
-	err = internal.ApproveSubscription(ctx, client, vendorProjectID, *subscription.SubscriptionId)
+	err = internal.ApproveSubscription(ctx, client, vendorProjectID, subscription.SubscriptionId)
 	if err != nil {
 		log.Fatalf("❌ Failed to approve subscription: %v", err)
 	}
