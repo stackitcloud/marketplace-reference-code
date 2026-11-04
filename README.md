@@ -50,4 +50,4 @@ Each language implementation demonstrates the same core functionality while foll
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
